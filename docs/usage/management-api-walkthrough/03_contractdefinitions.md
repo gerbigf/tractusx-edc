@@ -64,20 +64,13 @@ These can also be chained together with a logical AND:
 
 ```json
 {
-  "assetsSelector": [
+  "assetsSelector": 
     {
       "@type": "Criterion",
       "operandLeft": "https://w3id.org/edc/v0.0.1/ns/myCommonProperty",
       "operator": "=",
       "operandRight": "sharedValue"
-    },
-    {
-      "@type": "Criterion",
-      "operandLeft": "https://w3id.org/edc/v0.0.1/ns/myOtherProperty",
-      "operator": "=",
-      "operandRight": "otherSharedValue"
     }
-  ]
 }
 ```
 
@@ -87,6 +80,22 @@ part of the `edc:QuerySpec` objects that also allow pagination:
 - `POST /v3/assets/request`
 - `POST /v3/policydefinitions/request`
 - `POST /v3/contractdefinitions/request`
+
+## Using Private Properties as Asset Selectors
+When using a private property as an asset selector, the property defined in the left operator must be prefixed as follows: `"privateProperties.'https://w3id.org/edc/v0.0.1/ns/myCommonProperty'"`.  
+
+```json
+{
+  "assetsSelector":
+    {
+      "@type": "Criterion",
+      "operandLeft": "privateProperties.'https://w3id.org/edc/v0.0.1/ns/myCommonProperty'",
+      "operator": "=",
+      "operandRight": "sharedValue"
+    }
+}
+```
+
 
 ## Side-Effects
 
