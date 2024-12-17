@@ -333,7 +333,7 @@ that the EDC interprets policies it can't evaluate as true by default. A couple 
   "@type": "PolicyDefinition",
   "@id": "{% uuid 'v4' %}",
   "policy": {
-    "@type": "Policy",
+    "@type": "Set",
     "odrl:permission": [
       {
         "odrl:action": "use"
